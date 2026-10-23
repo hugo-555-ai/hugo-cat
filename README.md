@@ -23,6 +23,8 @@ This project features a web-based photo booth with:
 ```
 hugo-cat/
 ├── README.md
+├── admin/
+│   └── pull.php          # Script para actualizacion automatica
 └── html/
     ├── favicon.ico
     ├── favicon.png
@@ -50,9 +52,86 @@ python -m http.server 8000
 
 ## Deployment
 
+### Basic Deployment
 To deploy to a web server:
 - Upload the contents of the `html/` directory to your web server root
 - Ensure all image paths are correct
+
+### Automatic Update Endpoint (Recommended)
+
+For **hugo.cat** domain with Apache serving from `/var/www.hugo.cat/html`:
+
+#### 1. On your VPS:
+
+**Create directory structure:**
+```bash
+sudo mkdir -p /var/www.hugo.cat/update
+sudo chown www-data:www-data /var/www.hugo.cat/update
+```
+
+**Copy the update script:**
+```bash
+# Copy admin/pull.php from this repo to your VPS
+cp admin/pull.php /var/www.hugo.cat/update/
+```
+
+**Configure authentication:**
+```bash
+sudo htpasswd -c /etc/apache2/.htpasswd pull-hugo-cat
+# You will be prompted for a password - remember it!
+```
+
+**Set proper permissions for git:**
+```bash
+sudo chown -R www-data:www-data /var/www.hugo.cat/html
+sudo -u www-data git config --global --add safe.directory /var/www.hugo.cat/html
+```
+
+#### 2. Configure Apache
+
+Edit `/etc/apache2/sites-enabled/hugo.cat.conf` and add **inside your VirtualHost**:
+
+```apache
+# Add this inside your existing VirtualHost for hugo.cat
+Alias /update /var/www.hugo.cat/update
+
+<Directory /var/www.hugo.cat/update>
+    AuthType Basic
+    AuthName "Actualizacion de hugo.cat"
+    AuthUserFile /etc/apache2/.htpasswd
+    Require valid-user
+
+    # Enable PHP execution
+    AddType application/x-httpd-php .php
+    DirectoryIndex pull.php
+</Directory>
+```
+
+**Enable required modules and reload Apache:**
+```bash
+sudo a2enmod authn_core auth_basic alias
+sudo systemctl reload apache2
+```
+
+#### 3. Usage
+
+Visit in your browser: **`https://hugo.cat/update`**
+- Username: `pull-hugo-cat`
+- Password: [the password you set with htpasswd]
+
+The script will execute `git pull origin master` and display the result.
+
+#### 4. Initial Setup
+
+First time setup on your VPS:
+```bash
+# Clone the repository
+cd /var/www.hugo.cat
+sudo -u www-data git clone https://github.com/hugo-555-ai/hugo-cat.git html
+
+# Set correct permissions
+sudo chown -R www-data:www-data html
+```
 
 ## Credits
 
