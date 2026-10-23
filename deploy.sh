@@ -1,15 +1,13 @@
 #!/bin/bash
 # Script de despliegue para hugo.cat
-# Solo funciona en el servidor "boniato"
+# Funciona desde cualquier directorio (autonomo)
 
-set -e  # Salir en caso de error
+set -e
 
 # ========== CONFIGURACIÓN ==========
 BASE_DIR="/var/www.hugo.cat"
 TARGET_HTML="$BASE_DIR/html"
 TARGET_UPDATE="$BASE_DIR/update"
-REPO_URL="git@github.com:hugo-555-ai/hugo-cat.git"
-REPO_TEMP="/tmp/hugo-cat-deploy-$$"
 
 # ========== VALIDACIONES ==========
 echo "=== Despliegue hugo.cat ==="
@@ -39,22 +37,14 @@ cp -a "$TARGET_HTML"/* "$BACKUP_DIR"/ 2>/dev/null || echo "Advertencia: No se pu
 echo "Backup en: $BACKUP_DIR"
 
 # ========== DESCARGA Y COPIA ==========
-echo "Clonando repositorio en $REPO_TEMP..."
-mkdir -p "$REPO_TEMP"
-cd "$REPO_TEMP"
-git clone --depth 1 "$REPO_URL" repo 2>&1
-cd repo
+# El repo ya esta clonado en el directorio padre por pull.php
+# Solo necesitamos copiar html/ y admin/
+SCRIPT_DIR=$(dirname "$0")
+REPO_DIR=$(dirname "$SCRIPT_DIR")
 
-# Validar estructura del repo
-if [ ! -d "html" ] || [ ! -d "admin" ]; then
-    echo "ERROR: Estructura del repositorio inesperada (falta html/ o admin/)"
-    cd / && rm -rf "$REPO_TEMP"
-    exit 1
-fi
-
-echo "Copiando archivos..."
-sudo cp -r html/* "$TARGET_HTML/"
-sudo cp -r admin/* "$TARGET_UPDATE/"
+echo "Copiando archivos desde $REPO_DIR..."
+sudo cp -r "$REPO_DIR/html/"* "$TARGET_HTML/"
+sudo cp -r "$REPO_DIR/admin/"* "$TARGET_UPDATE/"
 
 # ========== PERMISOS ==========
 echo "Configurando permisos..."
@@ -64,9 +54,9 @@ sudo chmod 644 "$TARGET_UPDATE"/pull.php
 
 # ========== LIMPIEZA ==========
 echo "Limpieza..."
-cd / && rm -rf "$REPO_TEMP"
 
 echo ""
 echo "=== ✅ Despliegue completado ==="
 echo "Html: $TARGET_HTML"
 echo "Update: $TARGET_UPDATE"
+
