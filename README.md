@@ -119,7 +119,7 @@ Visit in your browser: **`https://hugo.cat/update`**
 - Username: `pull-hugo-cat`
 - Password: [the password you set with htpasswd]
 
-The script will execute `git pull origin master` and display the result.
+The script will execute the deployment process and display the result.
 
 #### 4. Initial Setup
 
@@ -131,6 +131,77 @@ sudo -u www-data git clone https://github.com/hugo-555-ai/hugo-cat.git html
 
 # Set correct permissions
 sudo chown -R www-data:www-data html
+```
+
+### Full Redeployment Guide
+
+If you need to redeploy from scratch or recover the site:
+
+#### Prerequisites
+1. **SSH Key Setup for www-data** (required for GitHub access):
+   ```bash
+   sudo mkdir -p /var/www/.ssh
+   sudo ssh-keygen -t ed25519 -f /var/www/.ssh/id_ed25519 -C "www-data@hugo.cat" -N ""
+   sudo chown -R www-data:www-data /var/www/.ssh
+   sudo chmod 700 /var/www/.ssh
+   sudo chmod 600 /var/www/.ssh/id_ed25519
+   ```
+   **Add public key to GitHub:** Copy `/var/www/.ssh/id_ed25519.pub` content to GitHub Settings → SSH and GPG keys
+
+2. **Sudoers Configuration** (required for web-based updates):
+   ```bash
+   # For deploy.sh execution
+   echo 'www-data ALL=(root) NOPASSWD: /tmp/hugo-cat-deploy-*/repo/deploy.sh' | sudo tee /etc/sudoers.d/hugo-cat-deploy
+   
+   # For git operations
+   echo 'www-data ALL=(www-data) NOPASSWD: /usr/bin/git' | sudo tee /etc/sudoers.d/hugo-cat-git
+   
+   # For chmod operations
+   echo 'www-data ALL=(root) NOPASSWD: /bin/chmod' | sudo tee /etc/sudoers.d/hugo-cat-chmod
+   
+   # Set correct permissions for all sudoers files
+   sudo chmod 440 /etc/sudoers.d/hugo-cat-deploy
+   sudo chmod 440 /etc/sudoers.d/hugo-cat-git
+   sudo chmod 440 /etc/sudoers.d/hugo-cat-chmod
+   
+   # Verify no syntax errors
+   sudo visudo -c
+   ```
+
+3. **Directory Structure:**
+   ```bash
+   sudo mkdir -p /var/www.hugo.cat/html
+   sudo mkdir -p /var/www.hugo.cat/update
+   sudo chown -R www-data:www-data /var/www.hugo.cat
+   ```
+
+#### Full Deployment Steps
+```bash
+# 1. Create backup of current site (if exists)
+sudo zip -r /tmp/hugo-cat-full-backup-$(date +%Y%m%d-%H%M%S).zip /var/www.hugo.cat/
+
+# 2. Clone repository to temporary location
+cd /tmp
+sudo -u www-data git clone --depth 1 git@github.com:hugo-555-ai/hugo-cat.git hugo-cat-deploy-manual
+
+# 3. Execute deploy script
+sudo chmod +x /tmp/hugo-cat-deploy-manual/deploy.sh
+sudo bash /tmp/hugo-cat-deploy-manual/deploy.sh
+
+# 4. Clean up
+sudo rm -rf /tmp/hugo-cat-deploy-manual
+```
+
+#### Recovery from Backup
+If deployment fails, restore from backup:
+```bash
+# List available backups
+ls -la /tmp/hugo-cat-backup-*
+
+# Restore from specific backup (replace timestamp)
+sudo rm -rf /var/www.hugo.cat/html/*
+sudo unzip /tmp/hugo-cat-backup-20261023-XXXXXX.zip -d /var/www.hugo.cat/html/
+sudo chown -R www-data:www-data /var/www.hugo.cat/html
 ```
 
 ## Credits
