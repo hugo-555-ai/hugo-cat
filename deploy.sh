@@ -37,10 +37,9 @@ cp -a "$TARGET_HTML"/* "$BACKUP_DIR"/ 2>/dev/null || echo "Advertencia: No se pu
 echo "Backup en: $BACKUP_DIR"
 
 # ========== DESCARGA Y COPIA ==========
-# El repo ya esta clonado en el directorio padre por pull.php
-# Solo necesitamos copiar html/ y admin/
-SCRIPT_DIR=$(dirname "$0")
-REPO_DIR=$(dirname "$SCRIPT_DIR")
+# El repo ya esta clonado en el directorio del script por pull.php
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+REPO_DIR="$SCRIPT_DIR"
 
 echo "Copiando archivos desde $REPO_DIR..."
 sudo cp -r "$REPO_DIR/html/"* "$TARGET_HTML/"
