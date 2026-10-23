@@ -168,7 +168,26 @@ If you need to redeploy from scratch or recover the site:
    sudo visudo -c
    ```
 
-3. **Directory Structure:**
+3. **Apache Configuration for Filonoticies:**
+   Add these Alias directives to `/etc/apache2/sites-enabled/hugo.cat.conf` inside your VirtualHost:
+   ```apache
+   # Access to filonoticies - direct URLs
+   Alias /filonoticies-ca /var/www.hugo.cat/filonoticies/filonoticies-ca
+   Alias /filonoticies-es /var/www.hugo.cat/filonoticies/filonoticies-es
+   Alias /filonoticies-cost /var/www.hugo.cat/filonoticies/filonoticies-cost
+   Alias /filonoticies /var/www.hugo.cat/filonoticies/filonoticies
+   Alias /o /var/www.hugo.cat/filonoticies/o
+
+   <Directory /var/www.hugo.cat/filonoticies>
+     Require all granted
+   </Directory>
+   ```
+   Reload Apache after changes:
+   ```bash
+   sudo systemctl reload apache2
+   ```
+
+4. **Directory Structure:**
    ```bash
    sudo mkdir -p /var/www.hugo.cat/html
    sudo mkdir -p /var/www.hugo.cat/update
