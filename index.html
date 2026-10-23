@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<title>Hugo Ballesteros Mañes - Contacte personal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="contacte,Hugo,Ballesteros,Mañes">
+<meta name="description" content="Pàgina amb informació per posar-te en contacte amb Hugo Ballesteros Mañes. Correu electrònic i Telegram.">
+<meta name="author" content="Hugo Ballesteros Mañes">
+<meta name="theme-color" content="#05060a">
+<meta property="og:title" content="Hugo Ballesteros Mañes">
+<meta property="og:description" content="Pàgina de contacte personal d'Hugo Ballesteros Mañes">
+<meta property="og:url" content="https://www.hugo.cat">
+<meta property="og:type" content="profile">
+<meta property="profile:first_name" content="Hugo">
+<meta property="profile:last_name" content="Ballesteros Mañes">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Hugo Ballesteros Mañes","url":"https://www.hugo.cat","sameAs":["https://www.flickr.com/hugoballesteros/","https://t.me/hugoballesteros"],"contactPoint":{"@type":"ContactPoint","email":"hugo@hugo.cat"}}
+</script>
+<link rel="alternate" hreflang="ca" href="https://www.hugo.cat">
+<link rel="canonical" href="https://www.hugo.cat">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="favicon.png">
+<style>
+:root{
+  --bg:#05060a; --fg:#eef0f6; --muted:#9aa0b4;
+  --a:#ffc933; --b:#5ee7ff; --c:#b583ff;
+  --glass:rgba(255,255,255,.06); --line:rgba(255,255,255,.14);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:system-ui,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;
+  line-height:1.5;overflow-x:hidden;min-height:100vh;
+}
+#photo{position:fixed;inset:-10% 0;z-index:-3;background:url(fondo_t4.jpg) center/cover;
+  filter:saturate(1.2) brightness(.55);will-change:transform;opacity:.9}
+#shade{position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(1200px 700px at 50% 0%,transparent,rgba(5,6,10,.75) 60%,var(--bg) 100%)}
+#fx{position:fixed;inset:0;z-index:-1;pointer-events:none}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(94,231,255,.22),rgba(181,131,255,.12) 45%,transparent 70%);
+  transform:translate(-50%,-50%);left:50%;top:40%;filter:blur(20px)}
+main{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+header{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:18px}
+.kicker{font-size:clamp(.9rem,2vw,1.1rem);letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(2.6rem,11vw,7.5rem);line-height:.95;font-weight:800;letter-spacing:-.04em;
+  color:#d6e6f5;text-shadow:0 0 3px #eef6fd,0 0 10px #4f86c6,0 0 22px #4f86c6,0 0 46px #4f86c6,0 0 90px #2b5f96}
+h1 i{font-style:normal;display:inline-block}
+h1 i.fl{animation:neon 12s infinite}
+@keyframes neon{0%,17%,21%,24%,58%,61%,100%{opacity:1}18%,23%,59%{opacity:.35}19%,60%{opacity:.9}}
+h1 span{display:block}
+.sub{color:var(--muted);font-size:clamp(1rem,2.4vw,1.3rem);min-height:1.6em}
+.sub::after{content:"▍";margin-left:3px;color:var(--b);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.scroll{margin-top:30px;width:26px;height:42px;border:2px solid var(--line);border-radius:14px;position:relative}
+.scroll::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--fg);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(14px)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{position:relative;padding:28px;border-radius:24px;background:var(--glass);
+  border:1px solid var(--line);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
+  transform-style:preserve-3d;transition:transform .15s ease-out,border-color .3s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.14),transparent 45%)}
+.card:hover{border-color:rgba(255,255,255,.35)}
+.card:hover::before{opacity:1}
+.card h2{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:600}
+.val{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:clamp(1rem,2.4vw,1.25rem);
+  color:var(--a);word-break:break-word}
+.hint{font-size:.85rem;color:var(--muted);margin-top:8px}
+.wide{grid-column:1/-1}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button,.btn{font:inherit;font-size:.9rem;cursor:pointer;color:var(--fg);text-decoration:none;
+  padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.07);
+  transition:background .2s,transform .2s,border-color .2s}
+button:hover,.btn:hover{background:rgba(255,255,255,.16);border-color:var(--b);transform:translateY(-2px)}
+.qrs{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.qr{text-align:center;color:var(--muted);font-size:.85rem}
+.qr img{display:block;width:min(220px,60vw);image-rendering:pixelated;background:#fff;padding:10px;border-radius:16px;
+  margin-bottom:10px;transition:transform .3s,box-shadow .3s}
+.qr a:hover img,.qr img:hover{transform:scale(1.05) rotate(-1.5deg);box-shadow:0 0 40px rgba(94,231,255,.5)}
+.news{display:flex;gap:12px;flex-wrap:wrap}
+.news a{flex:1 1 180px;text-decoration:none;color:var(--fg);padding:18px;border-radius:16px;border:1px solid var(--line);
+  background:rgba(255,255,255,.04);transition:all .25s}
+.news a:hover{background:linear-gradient(135deg,rgba(94,231,255,.18),rgba(181,131,255,.18));transform:translateY(-4px);border-color:var(--b)}
+.news b{display:block;font-size:1.05rem}
+.news small{color:var(--muted)}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,120px);padding:12px 22px;border-radius:999px;
+  background:rgba(20,22,32,.9);border:1px solid var(--b);transition:transform .35s cubic-bezier(.2,.9,.3,1.3);z-index:9}
+.toast.on{transform:translate(-50%,0)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:50px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+.deco{position:absolute;inset:0;width:100%;height:100%;opacity:.3;pointer-events:none;z-index:0}
+.card>*:not(.deco){position:relative;z-index:1}
+.drift{animation:drift 10s linear infinite}
+@keyframes drift{0%{transform:translateX(60px);opacity:0}10%,90%{opacity:1}100%{transform:translateX(-60px);opacity:0}}
+.trail{animation:trail 60s linear infinite}
+@keyframes trail{to{stroke-dashoffset:-240}}
+.glyph{animation:glyph 24s linear infinite}
+.g2{animation-delay:-5s}.g3{animation-delay:-10s}.g4{animation-delay:-15s}.g5{animation-delay:-19s}
+@keyframes glyph{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-150px);opacity:0}}
+.cell{animation:cell ease-in-out infinite}
+@keyframes cell{0%,100%{opacity:.1}50%{opacity:1}}
+#shade{background:radial-gradient(900px 520px at 12% 92%,rgba(120,84,36,.28),transparent 60%),radial-gradient(1000px 600px at 90% 8%,rgba(70,60,40,.22),transparent 60%),radial-gradient(1200px 700px at 50% 0%,transparent,rgba(5,6,10,.75) 60%,var(--bg) 100%)}
+#grime{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.42;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .4  0 0 0 0 .3  0 0 0 1.4 -.35'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='s'><feTurbulence type='fractalNoise' baseFrequency='.004 .25' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 2.2 -1.05'/></filter><rect width='100%25' height='100%25' filter='url(%23s)'/></svg>");}
+h1{filter:url(#grunge) blur(.6px)}
+</style>
+</head>
+<body>
+<div id="grime"></div><svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="grunge" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></svg><div id="photo"></div><div id="shade"></div><canvas id="fx"></canvas><div id="glow"></div>
+
+<main>
+<header>
+  <p class="kicker">Estàs a la pàgina de contacte d'en</p>
+  <h1><span><i>H</i><i>U</i><i>G</i><i>O</i></span><span><i>B</i><i>A</i><i>L</i><i>L</i><i>E</i><i>S</i><i>T</i><i>E</i><i>R</i><i>O</i><i class="fl" style="animation-delay:-5.42s">S</i></span><span><i>M</i><i>A</i><i class="fl" style="animation-delay:-10.26s">Ñ</i><i>E</i><i class="fl" style="animation-delay:-2.28s">S</i></span></h1>
+  <p class="sub" id="typed" aria-live="off"></p>
+  <div class="scroll" aria-hidden="true"></div>
+</header>
+
+<section class="grid">
+  <article class="card reveal"><svg class="deco" style="color:var(--b)" viewBox="0 0 320 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><g class="drift"><rect x="200" y="60" width="104" height="70" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M200 60 L252 98 L304 60" fill="none" stroke="currentColor" stroke-width="1.5"/></g><path class="trail" d="M10 170 C 70 120, 120 190, 185 120" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 8"/></svg>
+    <h2>Correu electrònic</h2>
+    <div class="val" id="mail">hugo at hugo.cat</div>
+    <div class="row">
+      <button id="mailcopy" type="button">Copia</button>
+      <a class="btn" id="mailto" href="#">Escriu-me</a>
+    </div>
+  </article>
+
+  <article class="card reveal"><svg class="deco" style="color:var(--a)" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-10 160 C 80 40, 200 220, 330 50" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 7"/><path d="M0 0 L22 9 L14 24 L11 15 Z" fill="currentColor"><animateMotion dur="40s" repeatCount="indefinite" rotate="auto" path="M-10 160 C 80 40, 200 220, 330 50"/></path></svg>
+    <h2>Telegram</h2>
+    <div class="val">@hugoballesteros</div>
+    <div class="row">
+      <a class="btn" href="https://t.me/hugoballesteros" rel="noopener">Obre el xat</a>
+      <button type="button" data-copy="@hugoballesteros">Copia</button>
+    </div>
+  </article>
+
+  <article class="card reveal wide"><svg class="deco" style="color:var(--c)" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true" font-family="Georgia,serif" font-size="18"><text class="glyph" x="30" y="170" fill="currentColor">?</text><text class="glyph g2" x="90" y="190" fill="currentColor">λόγος</text><text class="glyph g3" x="170" y="180" fill="currentColor">∴</text><text class="glyph g4" x="240" y="195" fill="currentColor">IA</text><text class="glyph g5" x="130" y="150" fill="currentColor">πάντα ῥεῖ</text></svg>
+    <h2>Notícies filosofades amb IA</h2>
+    <nav class="news">
+      <a href="/filonoticies-ca/" title="FiloNotícies: reflexions filosòfiques sobre les notícies del dia anterior"><b>Català</b></a>
+      <a href="/filonoticies-es/" title="FiloNoticias: reflexiones filosóficas sobre las noticias del día anterior"><b>Castellà</b></a>
+      <a href="/filonoticies-cost/" title="FiloNoticias a lo bien: el mateix anàlisi, amb to guasón"><b>Castellà costeño</b></a>
+    </nav>
+  </article>
+
+    <article class="card reveal wide">
+    <h2>Fotomatón</h2>
+    <p class="hint" style="margin:0 0 6px">Fes-te fotos amb la càmera, afegeix accessoris i efectes i obtén una tira de fotos.</p>
+    <div class="row">
+      <a class="btn" href="fotomaton/">Obre el fotomatón</a>
+    </div>
+  </article>
+
+<article class="card reveal wide"><svg class="deco" id="qrdeco" style="color:var(--b);opacity:.14" viewBox="0 0 200 200" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"></svg>
+    <h2>Codis QR</h2>
+    <div class="qrs">
+      <figure class="qr"><img id="qrm" alt="Codi QR del correu electrònic" src="qrmailto.png" title="Envia'm un correu electrònic">Correu</figure>
+    </div>
+  </article>
+</section>
+<footer>© Hugo Ballesteros Mañes</footer>
+</main>
+<div class="toast" id="toast" role="status">Copiat!</div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s){return document.querySelector(s)};
+  // Tres letras del nombre parpadean, elegidas al azar en cada carga
+  var lt=document.querySelectorAll('h1 i'),pk=[];lt.forEach(function(n){n.className='';n.style.animationDelay=''});
+  while(pk.length<3){var k=Math.floor(Math.random()*lt.length);if(pk.indexOf(k)<0)pk.push(k)}
+  pk.forEach(function(k){lt[k].className='fl';lt[k].style.animationDelay=(-Math.random()*12)+'s'});
+  var qd=$('#qrdeco');if(qd){var NS='http://www.w3.org/2000/svg';for(var r=0;r<12;r++)for(var c=0;c<12;c++){if(Math.random()<.45)continue;var q=document.createElementNS(NS,'rect');q.setAttribute('x',c*16+4);q.setAttribute('y',r*16+4);q.setAttribute('width',12);q.setAttribute('height',12);q.setAttribute('rx',2);q.setAttribute('class','cell');q.setAttribute('fill','currentColor');q.style.animationDuration=(4+Math.random()*7)+'s';q.style.animationDelay=(-Math.random()*20)+'s';qd.appendChild(q)}}
+  if(reduce)document.querySelectorAll('animateMotion').forEach(function(n){n.remove()});
+
+  // Correu muntat en JS (anti-spam)
+  var addr=['hugo','hugo.cat'].join('@');
+  $('#mailto').href='mailto:'+addr;
+  $('#mailcopy').dataset.copy=addr;
+  $('#qrm').style.cursor='pointer';
+  $('#qrm').onclick=function(){location.href='mailto:'+addr};
+
+  // Copiar al porta-retalls
+  var toast=$('#toast'),tt;
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-copy]');if(!t)return;
+    var txt=t.dataset.copy;
+    (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).catch(function(){
+      var i=document.createElement('textarea');i.value=txt;document.body.appendChild(i);i.select();document.execCommand('copy');i.remove();
+    });
+    toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},1600);
+  });
+
+  // Text mecanografiat
+  var words=['Contacte personal','Correu electrònic','Telegram','Notícies filosofades amb IA'],wi=0,ci=0,del=false,el=$('#typed');
+  if(reduce){el.textContent=words[0]}else(function tick(){
+    var w=words[wi];ci+=del?-1:1;el.textContent=w.slice(0,ci);
+    var d=del?35:75;
+    if(!del&&ci===w.length){del=true;d=1600}
+    else if(del&&ci===0){del=false;wi=(wi+1)%words.length;d=300}
+    setTimeout(tick,d);
+  })();
+
+  // Revelar en scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(n,i){n.style.transitionDelay=(i%2)*.1+'s';io.observe(n)});
+
+  // Parallax, llum seguint el ratolí, inclinació 3D de les targetes
+  var photo=$('#photo'),glow=$('#glow'),mx=innerWidth/2,my=innerHeight*.4,gx=mx,gy=my;
+  addEventListener('scroll',function(){if(!reduce)photo.style.transform='translateY('+(-scrollY*.15)+'px) scale(1.1)'},{passive:true});
+  addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY},{passive:true});
+  (function loop(){gx+=(mx-gx)*.08;gy+=(my-gy)*.08;glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+      c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');
+      if(!reduce&&e.pointerType==='mouse')c.style.transform='perspective(900px) rotateX('+((.5-y/r.height)*6)+'deg) rotateY('+((x/r.width-.5)*8)+'deg)';
+    });
+    c.addEventListener('pointerleave',function(){c.style.transform=''});
+  });
+
+  // Xarxa de partícules
+  if(reduce)return;
+  var cv=$('#fx'),cx=cv.getContext('2d'),W,H,P=[],dpr=Math.min(devicePixelRatio||1,2);
+  function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.min(110,Math.floor(W*H/14000));P=[];
+    for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,h:Math.random()<.5?190:270})}
+  size();addEventListener('resize',size);
+  (function draw(){
+    cx.clearRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){
+      var p=P[i];p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      var dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);
+      if(d<140){p.x+=dx/d*1.2;p.y+=dy/d*1.2}
+      cx.fillStyle='hsla('+p.h+',100%,75%,.8)';cx.beginPath();cx.arc(p.x,p.y,1.6,0,6.3);cx.fill();
+      for(var j=i+1;j<P.length;j++){
+        var q=P[j],l=Math.hypot(p.x-q.x,p.y-q.y);
+        if(l<120){cx.strokeStyle='hsla('+p.h+',100%,75%,'+(.22*(1-l/120))+')';cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}
+      }
+      if(d<180){cx.strokeStyle='rgba(255,201,51,'+(.5*(1-d/180))+')';cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(mx,my);cx.stroke()}
+    }
+    requestAnimationFrame(draw);
+  })();
+})();
+</script>
+</body>
+</html>
